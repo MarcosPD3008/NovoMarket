@@ -1,0 +1,47 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "Chats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Fecha",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Hora",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Chats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Fecha",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "Hora",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Chats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Fecha",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "Hora",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

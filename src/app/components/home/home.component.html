@@ -1,0 +1,44 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4 text-danger text-center">
+            <strong>
+              Novo Market
+            </strong>
+        </h1>
+        
+        <p class="text-center" *ngIf="!Collapse">
+          <img src="./assets/img/logo1.png" width="90" class="text-center">
+        </p>
+
+        <p class="lead text-center">
+            Calidad y confort garantizada
+        </p>
+        <div class="centrado text-center">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+<h1 class="text-center text-danger" style="margin-top:5%">
+  <strong>
+    Productos Destacados
+  </strong>
+</h1>
+<hr>
+
+<div class="card-deck justify-content-center" id="Titulo" *ngIf="true">
+    <app-info-card *ngFor="let prod of productos |slice:start:end; let i = index"
+    [idCard]="i" [product]="prod" [Small]="95"></app-info-card>
+</div>
+
+<div style="width:100%; padding-bottom: 15px;" class="text-center">
+  <div class="btn-group centrado" role="group" style="margin-top: 50px;">
+    <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" (click)="PageChange(btn)">
+      {{btn+1}}
+    </button>
+  </div>
+</div>

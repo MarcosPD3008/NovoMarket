@@ -1,0 +1,11 @@
+.div-contraido{
+    width:100%;    
+    height: 400px; 
+}
+
+.div-expandido{
+    width: 78%;
+    height: 400px; 
+    float: left; 
+    margin-right: 2%;
+}

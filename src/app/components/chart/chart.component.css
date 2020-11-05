@@ -1,0 +1,8 @@
+.thead-danger{
+    background-color: rgb(223, 71, 89);
+    color: white;
+}
+
+.mat-raised-button, .mat-mini-fab, .btn, .btn-outline-success{
+    outline: none !important;
+}

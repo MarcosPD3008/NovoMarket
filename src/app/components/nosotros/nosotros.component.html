@@ -1,0 +1,152 @@
+<div id="nosPadre">
+  <h1 class="text-center text-danger font-weight-light card-title" style="font-size: 35px;">
+    <strong>
+        Nosotros
+    </strong>
+  </h1><hr>
+  <div class="card mb-3" style="margin-top: 0%;" id="nosDiv">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <img src="assets/img/store.jpg" class="card-img" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body" style="margin-top:0%">
+          <p style="font-size: 20px; margin-top:10%;" class="font-weight-light"> 
+            <strong>
+              Somos una tienda que tiene como objetivo hacerte la vida más simple, ofrecerte soluciones
+              que te permitan disfrutar más, ahorrándote tiempo y adaptándonos a tu estilo de vida. <br><br>
+ 
+              A través de esta pagina podrás realizar tus compras y además nos puedes compartir tus opiniones o inquietudes, para garantizarte siempre el mejor servicio.
+            </strong>
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="margin-top: 6%;" id="PadreDiv">
+  <div id="titleDiv">
+    <h1 class="text-center text-danger font-weight-light" style="font-size: 30px;">
+      <strong>
+        Mas sobre nosotros
+      </strong>
+    </h1><hr>
+  </div>
+
+  <div id="cardsDiv">
+    <!--Mision-->
+    <h1 class="text-center text-danger font-weight-light card-title" style="font-size: 35px;">
+      <strong>
+          Mision
+      </strong>
+    </h1>
+    <div class="card mb-3 centrado" style="width: 60%;" id="nosDiv">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src="assets/img/caja.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body align-middle" style="margin-top: 20%;">
+            <p style="font-size: 20px;" class="font-weight-light">
+              <strong>
+                Velar por la economía y la satisfacción de nuestros clientes, ofertando una amplia gama de productos de superior calidad al más bajo precio, apoyándonos en un excelente servicio.
+              </strong>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Vision-->
+    <h1 class="text-center text-danger font-weight-light card-title" style="font-size: 35px; margin-top: 5%;">
+      <strong>
+          Vision
+      </strong>
+    </h1>
+
+    <div class="card mb-3 centrado" style="width: 60%;" id="nosDiv">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src="assets/img/vision.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body align-middle" style="margin-top: 20%;">
+            <p style="font-size: 20px;" class="font-weight-light">
+              <strong>
+                Ser la opción de compra de preferencia en los consumidores dominicanos, a través de un equipo humano comprometido, buenas relaciones de alianzas con los suplidores, los colaboradores y la comunidad.
+              </strong>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Valores-->
+    <h1 class="text-center text-danger font-weight-light card-title" style="font-size: 35px; margin-top: 5%;">
+      <strong>
+        Valores
+      </strong>
+    </h1>
+
+    <div class="card mb-3 centrado" style="width: 60%;" id="nosDiv">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <img src="assets/img/valores.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body align-middle">
+            <ul style="font-size: 20px; margin-top: 15%;" class="font-weight-light">
+              <li>
+                <strong>
+                  Orgullo por el servicio.
+                </strong>
+              </li>
+              <li>
+                <strong>
+                  Compromiso con la calidad.
+                </strong>
+              </li>
+              <li>
+                <strong>
+                  Trabajo en Equipo.
+                </strong>
+              </li>
+              <li>
+                <strong>
+                  Pasión por crecer.
+                </strong>
+              </li>
+              <li>
+                <strong>
+                  Abiertos a la comunicación.
+                </strong>
+              </li>
+              <li>
+                <strong>
+                  Valores Familiares.
+                </strong>
+              </li>
+              <li>
+                <strong>
+                  Credibilidad.
+                </strong>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor" *ngIf="!isOpen">
+  <button class="botonF1" id="btnArr" (click)="toTheTop()">
+    <span>
+      <mat-icon>
+        {{icon}}
+      </mat-icon>
+    </span>
+  </button>
+</div>

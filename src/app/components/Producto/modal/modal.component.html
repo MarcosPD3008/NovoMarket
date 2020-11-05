@@ -1,0 +1,45 @@
+<h2 class="text-center text-danger"><strong>{{ producto.Nombre }}</strong></h2><hr>
+
+<div style="width: 40%; height: 100%; float: left; padding: 10px;" *ngIf="producto" class="border border-danger rounded-lg">
+    <div class="box">
+        <img [src]="producto.Foto[0]" alt="" width="200" class="responsive">
+    </div>
+    <div>
+      <h3 class="text-danger text-center">
+        <strong>Precio:</strong>
+      </h3>
+
+      <p class="text-dark text-center">{{producto.Precio |currency:"DO"}}</p>
+      <button class="btn btn-outline-danger btn-block" (click)="AddToChart(producto)">
+        Añadir al carrito
+      </button>
+    </div>
+</div>
+
+<div style="width: 60%; padding-left: 2%; height: 100%; float: left;">
+    <div class="border border-danger rounded-lg">
+        <h2 class="text-center text-danger">
+            <strong>
+                Descripcion
+            </strong>
+        </h2>
+        <p class="text-dark text-center">{{producto.Descripcion}}</p>
+    </div>
+    <!---->
+    <div class="border border-danger rounded-lg" style="margin-top: 15px;">
+        <h2 class="text-center text-danger">
+            <strong>
+                Caracteristicas
+            </strong>
+        </h2>
+
+        <div style="margin-left: 15px;">
+            <ul>
+                <li *ngFor="let caracteristica of producto.Caracteristicas">
+                    <strong class="text-danger">{{caracteristica.Nombre}}: </strong>{{caracteristica.Contenido}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

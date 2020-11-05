@@ -1,0 +1,91 @@
+<h1 class="text-center text-danger" style="font-size: 30px;">Carrito de compras</h1>
+
+<hr>
+
+<table class="table font-weight-normal">
+    <thead class="thead-danger text-center">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Imagen</th>
+        <th scope="col" colspan="2" class="text-center">Articulo</th>
+        <th scope="col">Precio unidad</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Precio total</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let producto of cs.Productos; index as i"> 
+        <td>
+          <mat-checkbox name="check" color="warn" [(ngModel)]="producto.seleccionado" style="width: 10%;" (click)="this.cs.GetMonto()"></mat-checkbox>
+        </td>
+        <td style="width: 10%;">
+            <div class="box">
+                <img class="img-fluid img-thumbnail" [src]="producto.producto.Foto[0]" alt="">
+            </div>
+        </td>
+        <td colspan="2" style="width: 35%;">
+          <p class="text-dark text-center"><strong>{{producto.producto.Nombre}}</strong></p>
+          <p class="text-dark text-center">{{producto.producto.Descripcion}}</p>
+        </td>
+        <td style="width: 11%;">{{producto.producto.Precio |currency:"DO"}}</td>
+        <td>
+          <div>
+            <button class="btn btn-sm btn-outline-danger btn-block centrado" style="width: 50%;" (click)="cs.InChart(producto.producto, 'add')">
+                <strong>
+                  <i class="fa fa-arrow-up" style="font-size: 15px;" aria-hidden="true"></i>
+                </strong>
+            </button>
+
+            <div>
+                <label>{{producto.cantidad}}</label>
+            </div>
+            
+            <button class="btn btn-sm btn-outline-danger centrado" style="width: 50%;" (click)="cs.InChart(producto.producto, 'min')">
+                <strong>
+                  <i class="fa fa-arrow-down" style="font-size: 15px;" aria-hidden="true"></i>
+                </strong>
+            </button> 
+          </div>
+        </td>
+        <td>
+          {{producto.producto.Precio * producto.cantidad |currency:'DO'}}
+        </td>
+        <td>
+            <button mat-raised-button color="warn" (click)="cs.RemoveFromChart(producto.producto)">
+                <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+            </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-left">
+            <h3>
+                <strong class="text-danger">
+                  Monto Total:
+                </strong>
+                <strong>
+                    {{cs.Monto | currency:"DO"}}
+                </strong>
+            </h3>
+        </td>
+        
+        <td colspan="3" class="text-center">
+          <h3>
+              <strong class="text-danger">
+                Monto productos seleccionados:
+              </strong>
+              <strong>
+                {{this.cs.MontoSeleccionado | currency:"DO"}}
+              </strong>
+          </h3>
+        </td>
+
+        <td colspan="2" class="text-right">
+          <button class="btn btn-outline-primary" (click)="openDialog()" (mouseenter)="Spin=true" (mouseleave)="Spin = false">
+            <i class="fa fa-cog" [ngClass]="{'fa-spin': Spin}" aria-hidden="true"></i>
+            Opciones de carrito
+          </button>
+        </td>
+      </tr>
+    </tbody>
+</table>

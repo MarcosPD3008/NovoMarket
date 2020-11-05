@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: medium !important; }
+
+.mat-raised-button, .mat-mini-fab, .btn, .btn-outline-success{
+    outline: none !important;
+}
+
+.centrado{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.centrado2{
+    padding-left: auto !important;
+    padding-right: auto !important;
+}
+.bg-opacity{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+.main-container{
+    margin-top: 40px;
+    margin-bottom: 150px;
+}
+
+.puntero{
+    cursor: pointer;
+}
+
+.animated {
+  -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Versión sin prefijo, actualmente */
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}

@@ -1,0 +1,48 @@
+<div class="text-center" *ngIf="Change">
+    <h1 class="text-danger">Opciones del carrito</h1>
+
+    <button class="btn btn-outline-success btn-block" (click)="Changer('BA')">
+      <strong>
+        Comprar Todos
+      </strong>
+    </button><br> 
+  
+    <button class="btn btn-outline-success btn-block" (click)="Changer('BS')">
+      <strong>
+        Comprar seleccionados
+      </strong>
+    </button><br> 
+
+    <button class="btn btn-outline-danger btn-block" (click)="Changer('DA')"> 
+      <strong>
+        Limpiar carrito
+      </strong>
+    </button><br>
+  
+    <button class="btn btn-outline-danger btn-block" (click)="Changer('DS')">
+      <strong>
+        Eliminar seleccionados
+      </strong>
+    </button><br>
+  
+    <button class="btn btn-outline-danger btn-block" (click)="dialogRef.close()"> 
+      <strong>
+        Cerrar
+      </strong>
+    </button>
+</div>
+
+<div class="text-center" *ngIf="!Change">
+    <h1 class="text-danger">¿Seguro que desea {{Title}}?</h1>
+    <button class="btn btn-success centrado" style="width: 40%;" (click)="DoAnAction()">
+      <strong>
+        Si
+      </strong>
+    </button>
+  
+    <button class="btn btn-secondary centrado" (click)="Changer()" style="width: 40%;">
+      <strong>
+        No
+      </strong>
+    </button>
+</div>

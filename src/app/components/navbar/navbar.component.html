@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-white border border-bottom fixed-top" id="nav1">
+  <div class="bg-danger navbar-30 fixed-top" style="width: 100%;" id="infonav"  [@openClose]="isOpen ? 'open' : 'closed'">
+    <div class="centrado" style="width: fit-content;">
+      <i class="fa fa-whatsapp rounded-circle" aria-hidden="true"></i>
+      <a href="https://wa.link/dn198u" target="_blank" class="text-white text-left" style="font-size: 12px;">
+        809-613-0840
+      </a>
+
+      <span class="text-white span-centrado">|</span>
+
+      <i class="fa fa-github rounded-circle" style="margin-left: 5px;" aria-hidden="true"></i>
+      <a href="https://github.com/MarcosPD3008" target="_blank" class="text-white text-left" style="font-size: 12px;">
+        MarcosPD3008
+      </a>
+
+      <span class="text-white span-centrado" *ngIf="Collapse">|</span>
+
+      <i class="fa fa-envelope text-white" *ngIf="Collapse" style="margin-left: 5px;" aria-hidden="true"></i>
+      <a href="mailto:marcosod3008@gmail.com" *ngIf="Collapse" target="_blank" class="text-white text-left" style="font-size: 12px;">
+        marcosod3008@gmail.com
+      </a>
+    </div>
+
+  </div>
+
+  <button class="navbar-toggler" id="NavButton" [@openClose]="isOpen ? 'openNav' : 'closeNav'" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+  id="navButton" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [@openClose]="isOpen ? 'openNav' : 'closeNav'">
+    <ul class="navbar-nav mr-auto centrado">
+      <li class="nav-item active" [ngClass]="{'top-16': Collapse}" (click)="Cerrar()">
+        <a class="nav-link text-danger font-weight-bolder" routerLink="./Home">Inicio</a>
+      </li>
+
+      <span class="text-dark span-centrado top-25" *ngIf="Collapse">|</span>
+
+      <li class="nav-item active" [ngClass]="{'top-16': Collapse}" (click)="Cerrar()">
+        <a class="nav-link text-danger font-weight-bolder" routerLink="/Productos">Productos</a>
+      </li>
+
+
+      <span class="text-dark span-centrado top-25" *ngIf="Collapse"></span>
+
+      <li class="nav-item active" *ngIf="Collapse">
+        <img src="./assets/img/logo1.png" width="70" alt="">
+      </li>
+
+      <span class="text-dark span-centrado top-25" *ngIf="Collapse"></span>
+
+      <li class="nav-item active" [ngClass]="{'top-16': Collapse}" (click)="Cerrar()">
+        <a class="nav-link text-danger font-weight-bolder" routerLink="/Carrito">Carrito</a>
+      </li>
+
+      <span class="text-dark span-centrado top-25" *ngIf="Collapse">|</span>
+
+      <li class="nav-item active" [ngClass]="{'top-16': Collapse}" (click)="Cerrar()">
+        <a class="nav-link text-danger font-weight-bolder" routerLink="/Nosotros">Nosotros</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
