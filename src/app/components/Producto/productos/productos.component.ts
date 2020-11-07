@@ -126,13 +126,14 @@ export class ProductosComponent implements OnInit {
 
     this.loading = true;
     this.Titulo = "Palabra de busqueda: " + this.word
+    let word = this.word.toLowerCase();
     let arr = []
 
     this.ps.getProductByName().subscribe((products:Producto[]) =>{
       for(var producto in products){      
         if(products[producto].Nombre){
           let nombre = products[producto].Nombre.toLowerCase()
-          if(nombre.startsWith(this.word)){
+          if(nombre.toLowerCase().startsWith(word)){
             arr.push(products[producto]) 
           }
         }

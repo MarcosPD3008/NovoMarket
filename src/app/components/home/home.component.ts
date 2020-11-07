@@ -95,8 +95,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     $(window).ready( () =>{
       this.ReSize()
+
       $(window).resize( () => {
         this.ReSize()
+      })
+      
+      $(window).bind("orientationchange", (event) => {
+        this.ReSize()
+        console.log(event.target)
       })
     })
   }

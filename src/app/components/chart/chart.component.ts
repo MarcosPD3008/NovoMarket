@@ -35,13 +35,18 @@ export class ChartComponent implements OnInit {
       $(window).resize( () => {
         this.ReSize()
       })
-    })
+
+      $(window).bind("orientationchange", (event) => {
+        this.ReSize()
+        console.log(event.target.screen.orientation)
+      })
+    }) 
   }
 
   openDialog(): void {
     let ancho:string = '20%';
     if(!this.Collapse)
-      ancho = '40%'
+      ancho = '50%'
     const dialogRef = this.dialog.open(ChartOptionsComponent, {
       width: ancho
     });

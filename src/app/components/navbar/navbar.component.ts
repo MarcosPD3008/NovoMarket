@@ -95,6 +95,16 @@ export class NavbarComponent implements OnInit{
         }
       })
 
+      $(window).bind("orientationchange", () => {
+        if($(window).width() < 575){
+          this.Collapse = false;
+        }
+        else{
+          this.Collapse = true;
+        }
+      })
+      });
+
       $('.botonF1').click(() => {
         if(this.icon == "arrow_circle_down"){
           $('html, body').scrollTop( $(document).height());
@@ -108,6 +118,5 @@ export class NavbarComponent implements OnInit{
       setTimeout( () => {
         this.Cerrar() 
       },350) 
-    })
   }
 }

@@ -1,6 +1,8 @@
-<div class="text-center" *ngIf="Change">
-    <h1 class="text-danger">Opciones del carrito</h1>
+<div style="width: 100%;">
+  <h1 class="text-danger text-center">Opciones del carrito</h1>
+</div>
 
+<div class="text-center" [ngClass]="{'btn-group': !portrait}" *ngIf="Change">
     <button class="btn btn-outline-success btn-block" (click)="Changer('BA')">
       <strong>
         Comprar Todos
