@@ -32,11 +32,11 @@ angle: 0, type: "portrait-primary"
       }
       
       $(window).bind("orientationchange", (e) =>{
-        if(e.target.screen.orientation.angle == 0 || e.target.screen.orientation.type == 'portrait-primary'){
+        if(e.target.screen.orientation.angle == 0 || e.target.screen.orientation.type == 'portrait-primary' || e.target.screen.orientation.type == 'portrait-secondary'){
           this.portrait = true
-          this.dialogRef.updateSize("50%")
+          this.dialogRef.updateSize("50%") 
         }
-        if(e.target.screen.orientation.angle == 90 || e.target.screen.orientation.type == 'landscape-primary'){
+        if(e.target.screen.orientation.angle == 90 || e.target.screen.orientation.type == 'landscape-primary' || e.target.screen.orientation.type == 'landscape-secondary'){
           this.portrait = false
           this.dialogRef.updateSize("100%") 
         }

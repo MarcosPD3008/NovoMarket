@@ -117,7 +117,7 @@ export class ChartService {
     this.Monto = 0
     localStorage.removeItem("chart")
     this.MontoSeleccionado = 0;
-    this.sb.open("Todos los productos han sido eliminados")  
+    this.sb.open("Todos los productos han sido eliminados", "Cerrar", {duration:3000})  
   }
 
   RemoveSelected(){
