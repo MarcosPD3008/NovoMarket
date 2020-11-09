@@ -115,8 +115,6 @@ export class NavbarComponent implements OnInit{
           this.icon = "arrow_circle_down"
         }
       })
-      setTimeout( () => {
-        this.Cerrar() 
-      },350) 
+      this.Cerrar()
   }
 }
