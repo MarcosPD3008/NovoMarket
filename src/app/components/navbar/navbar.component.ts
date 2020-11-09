@@ -1,7 +1,7 @@
 import { MatDivider } from '@angular/material/divider';
 import { sha256 } from 'js-sha256';
 import { User } from './../../interfaces/user';
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import {
@@ -53,7 +53,7 @@ declare const $:any;
     ]),
   ]
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit, OnDestroy{
 
   public top:boolean = false;
   icon:string = "arrow_circle_down";
@@ -105,16 +105,20 @@ export class NavbarComponent implements OnInit{
       })
       });
 
-      $('.botonF1').click(() => {
-        if(this.icon == "arrow_circle_down"){
-          $('html, body').scrollTop( $(document).height());
-          this.icon = "arrow_circle_up"
-        }
-        else{
-          $('html, body').scrollTop(0);
-          this.icon = "arrow_circle_down"
-        }
-      })
+      $(window).scroll(() => {
+        var windowHeight = $(window).scrollTop();
+        if(windowHeight >= $(window).height()/4)
+          this.isOpen = false;
+        else
+          this.isOpen = true;
+      
+      });
+
       this.Cerrar()
+  }
+
+  ngOnDestroy(){
+    $(window).off("scroll")
+    $(window).off("bind")
   }
 }

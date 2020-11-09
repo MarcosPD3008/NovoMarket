@@ -2,6 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Producto } from './../../../interfaces/producto';
 import { ProductsService } from './../../../services/products.service';
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { ExpressionStatement } from '@angular/compiler';
 
 declare const $:any;
 
@@ -25,7 +26,8 @@ export class ProductosComponent implements OnInit {
     this.loading = true;
     this.GetProductos()
     ps.GetCategorias().subscribe((data:any) =>{ 
-      this.Categorias = data.Categoria
+      if(data != undefined)
+        this.Categorias = data['Categoria']
     })
   }
 

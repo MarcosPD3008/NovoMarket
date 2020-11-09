@@ -1,6 +1,6 @@
 import { ChartService } from './../../services/chart.service';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ChartOptionsComponent } from './chart-options.component';
 
 declare const $:any
@@ -14,6 +14,8 @@ export class ChartComponent implements OnInit {
   MontoSeleccionado: number = 0;
   Spin:boolean = false;
   Collapse:boolean = false;
+  dialogRef:MatDialogRef<ChartOptionsComponent>
+  wasOpen:boolean = false;
 
   constructor(public cs:ChartService, public dialog: MatDialog) {
     this.GetMonto()
@@ -43,9 +45,10 @@ export class ChartComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ChartOptionsComponent)
+    this.wasOpen = true;
+    this.dialogRef = this.dialog.open(ChartOptionsComponent)
 
-    dialogRef.afterClosed().subscribe(() =>{
+    this.dialogRef.afterClosed().subscribe(() =>{
       this.GetMonto()
     })
   }

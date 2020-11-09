@@ -35,36 +35,43 @@ export class NosotrosComponent implements OnInit, OnDestroy {
 
   open:boolean = true;
   opacity:boolean = true;
-  op:string = "0";
+  op:string[] = ["0.1", "1"];
   icon:string = "arrow_circle_down";
   isOpen = true;
+  less:number = 600;
+  lstScroll:number = 0;
 
   constructor() {
     $(window).scrollTop(0)
 
 		$(window).scroll(() => {
-			var windowHeight = $(window).scrollTop();
+      var windowHeight = $(window).scrollTop();
+      //var scrollPoint = $(window).position().top
       var divHeight = $('#PadreDiv').position().top;
 
-      if(windowHeight >= divHeight-600){
-        this.opacity = false;
-        this.op = '0.2';
-      }
-      if(windowHeight >= divHeight-500){
-        this.op = '0.4';
-      }
-      if(windowHeight >= divHeight-400){
-        this.op = '0.6';
-      }
-      if(windowHeight >= divHeight-300){
-        this.op = "0.8"
+
+      if(windowHeight > this.lstScroll){
+        //scroll down
+        if(windowHeight >= divHeight-this.less && this.less >= 300){
+          this.less -= 100;
+          this.op[0] = String(+this.op[0] + 0.2)
+          this.op[1] = String(+this.op[1] - 0.2)  
+        }
       }
       else{
-        this.opacity = true;
+        //scroll up
+        if(windowHeight < divHeight-this.less && this.less <= 600){
+          this.less += 100;
+          this.op[0] = String(+this.op[0] - 0.2)
+          this.op[1] = String(+this.op[1] + 0.2)  
+        }
       }
 
-      if (windowHeight >= $(window).height()){
-        // scroll down
+      if(+this.op[0] <= 0) this.op[0] = "0.1"
+      if(+this.op[1] <= 0) this.op[1] = "0.1"
+      this.lstScroll = windowHeight;
+
+      if (windowHeight >= $(window).height()/2){
         this.isOpen = false
         this.icon = "arrow_circle_up"
       }
@@ -83,7 +90,6 @@ export class NosotrosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   ngOnDestroy(){
-    console.log("OnDestroy")
     $(window).off("scroll")
   }
 }

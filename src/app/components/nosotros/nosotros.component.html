@@ -1,4 +1,4 @@
-<div id="nosPadre">
+<div id="nosPadre" [ngStyle]="{'opacity': opacity ? op[1] : '0.1'}">
   <h1 class="text-center text-danger font-weight-light card-title" style="font-size: 35px;">
     <strong>
         Nosotros
@@ -26,7 +26,7 @@
 </div>
 
 
-<div style="margin-top: 6%;" id="PadreDiv" [ngStyle]="{'opacity': opacity ? op : '1'}">
+<div style="margin-top: 6%;" id="PadreDiv" [ngStyle]="{'opacity': opacity ? op[0] : '1'}">
   <div id="titleDiv">
     <h1 class="text-center text-danger font-weight-light" style="font-size: 30px;">
       <strong>

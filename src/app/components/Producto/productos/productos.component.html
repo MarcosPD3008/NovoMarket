@@ -42,7 +42,7 @@
 <div style="width: 20%; height: 400px; float: left;" *ngIf="Collapse">
     <input type="text" id="search" class="form-control" placeholder="Buscar producto..." [(ngModel)]="word" (change)="SearchByName()" (keyup)="SearchByName()"><br>
 
-    <mat-list *ngIf="this.Categorias.length > 0">
+    <mat-list *ngIf="this.Categorias?.length > 0">
         <span class="text-center text-danger"><strong>Categorias</strong></span>
 
         <mat-list-item *ngFor="let categoria of Categorias; index as i" class="puntero" (click)="SortByCategory(categoria)"
