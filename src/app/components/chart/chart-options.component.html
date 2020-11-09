@@ -2,7 +2,8 @@
   <h1 class="text-danger text-center">Opciones del carrito</h1>
 </div>
 
-<div class="text-center" [ngClass]="{'btn-group': !portrait}" *ngIf="Change">
+<div class="text-center justify-content-center">
+  <div class="text-center" [ngClass]="{'btn-group': !portrait}" *ngIf="Change">
     <button class="btn btn-outline-success btn-block" (click)="Changer('BA')">
       <strong>
         Comprar Todos
@@ -11,7 +12,7 @@
 
     <button class="btn btn-outline-success btn-block" (click)="Changer('BS')">
       <strong>
-        Comprar seleccionados
+        Comprar seleccionados {{portrait}}
       </strong>
     </button><br>
 
@@ -32,6 +33,7 @@
         Cerrar
       </strong>
     </button>
+</div>
 </div>
 
 <div class="text-center" *ngIf="!Change">

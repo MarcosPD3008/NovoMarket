@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterContentInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ChartService } from 'src/app/services/chart.service';
 
@@ -8,48 +8,66 @@ declare const $:any
   selector: 'app-chart-options',
   templateUrl: './chart-options.component.html'
 })
-export class ChartOptionsComponent implements OnInit {
+export class ChartOptionsComponent implements AfterContentInit, OnDestroy {
   Title:string = ""
   Action:string =""
   Change:boolean = true;
   portrait:boolean = true;
-/*
-angle: 90, type: "landscape-primary"
+  
+  constructor(private cs: ChartService, public dialogRef: MatDialogRef<ChartOptionsComponent>) {}
 
-angle: 0, type: "portrait-primary"
-*/
-  constructor(private cs: ChartService, public dialogRef: MatDialogRef<ChartOptionsComponent>) { }
-
-  ngOnInit(): void {
-    $(window).ready( () =>{
-      if(window.innerHeight > window.innerWidth){
-        this.portrait = true
+  ngAfterContentInit(){
+    if(window.innerHeight > window.innerWidth){ 
+      this.portrait = true
+      if($(window).width() >= 600)
+        this.dialogRef.updateSize("400px")
+      else
         this.dialogRef.updateSize("50%")
-      }
-      else{
-        this.portrait = false
+    }
+    else{
+      this.portrait = false;
+
+      if($(window).width() >= 1200 && this.portrait == false)
+        this.dialogRef.updateSize("50%")
+      else
         this.dialogRef.updateSize("100%") 
+    }
+
+    $(window).bind("orientationchange", (e) =>{
+      if(e.target.screen.orientation.angle == 0 || e.target.screen.orientation.type == 'portrait-primary' || e.target.screen.orientation.type == 'portrait-secondary'){
+        this.portrait = true
+        if($(window).width() >= 600)
+          this.dialogRef.updateSize("400px")
+        else
+          this.dialogRef.updateSize("50%")
       }
-      
-      $(window).bind("orientationchange", (e) =>{
-        if(e.target.screen.orientation.angle == 0 || e.target.screen.orientation.type == 'portrait-primary' || e.target.screen.orientation.type == 'portrait-secondary'){
-          this.portrait = true
-          this.dialogRef.updateSize("50%") 
-        }
-        if(e.target.screen.orientation.angle == 90 || e.target.screen.orientation.type == 'landscape-primary' || e.target.screen.orientation.type == 'landscape-secondary'){
-          this.portrait = false
-          this.dialogRef.updateSize("100%") 
-        }
-      })
+      if(e.target.screen.orientation.angle == 90 || e.target.screen.orientation.type == 'landscape-primary' || e.target.screen.orientation.type == 'landscape-secondary'){
+        this.portrait = false
+        if($(window).width() >= 1200)
+          this.dialogRef.updateSize("50%")
+        else
+          this.dialogRef.updateSize("100%")   
+      }
     })
-  } 
+
+  }
 
   Changer(Action?:string){
-    this.Change = !this.Change;
-    this.dialogRef.updateSize("50%")
+    if(!Action){
+      if($(window).width() >= 600 && this.portrait == true)
+        this.dialogRef.updateSize("400px")
+      else if($(window).width() >= 1200 && this.portrait == false)
+        this.dialogRef.updateSize("50%")
+      else
+        this.dialogRef.updateSize("100%")
 
-    if(!Action) this.dialogRef.updateSize("100%")
-
+      this.Change = true; 
+    } 
+    else{
+      this.Change = false;
+      this.dialogRef.updateSize("50%")
+    }
+    
     if(Action){
       this.Action = Action;
       switch(Action){
@@ -87,4 +105,7 @@ angle: 0, type: "portrait-primary"
     this.dialogRef.close();
   }
 
+  ngOnDestroy(){
+    $(window).off("bind")
+  }
 }

@@ -35,7 +35,7 @@ export class NosotrosComponent implements OnInit, OnDestroy {
 
   open:boolean = true;
   opacity:boolean = true;
-  op:string[] = ["0.1", "1"];
+  op:string[] = ["0.2", "1"];
   icon:string = "arrow_circle_down";
   isOpen = true;
   less:number = 600;
@@ -67,8 +67,8 @@ export class NosotrosComponent implements OnInit, OnDestroy {
         }
       }
 
-      if(+this.op[0] <= 0) this.op[0] = "0.1"
-      if(+this.op[1] <= 0) this.op[1] = "0.1"
+      if(+this.op[0] <= 0) this.op[0] = "0.2"
+      if(+this.op[1] <= 0) this.op[1] = "0.2"
       this.lstScroll = windowHeight;
 
       if (windowHeight >= $(window).height()/2){
