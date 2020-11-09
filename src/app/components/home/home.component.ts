@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     //this.ps.AgregarProducto(producto)
   }
 
-  botones(){    
+  botones(){
     let btnCount = (this.productos.length / 3) - 1;
     for(var a = 0; a < btnCount; a++){
       this.btnCount.push(a)
@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
       this.Collapse = true;
     }
   }
-  
+
   ngOnInit(): void {
     $(window).ready( () =>{
       this.ReSize()
@@ -99,10 +99,9 @@ export class HomeComponent implements OnInit {
       $(window).resize( () => {
         this.ReSize()
       })
-      
+
       $(window).bind("orientationchange", (event) => {
         this.ReSize()
-        console.log(event.target)
       })
     })
   }

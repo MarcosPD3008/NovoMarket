@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   trigger,
   state,
@@ -31,9 +31,11 @@ declare var $:any;
     ]),
   ]
 })
-export class NosotrosComponent implements OnInit {
+export class NosotrosComponent implements OnInit, OnDestroy {
 
   open:boolean = true;
+  opacity:boolean = true;
+  op:string = "0";
   icon:string = "arrow_circle_down";
   isOpen = true;
 
@@ -42,6 +44,24 @@ export class NosotrosComponent implements OnInit {
 
 		$(window).scroll(() => {
 			var windowHeight = $(window).scrollTop();
+      var divHeight = $('#PadreDiv').position().top;
+
+      if(windowHeight >= divHeight-600){
+        this.opacity = false;
+        this.op = '0.2';
+      }
+      if(windowHeight >= divHeight-500){
+        this.op = '0.4';
+      }
+      if(windowHeight >= divHeight-400){
+        this.op = '0.6';
+      }
+      if(windowHeight >= divHeight-300){
+        this.op = "0.8"
+      }
+      else{
+        this.opacity = true;
+      }
 
       if (windowHeight >= $(window).height()){
         // scroll down
@@ -60,8 +80,10 @@ export class NosotrosComponent implements OnInit {
     }, 500)
 
   }
-  ngOnInit(): void {
-    
-    
+  ngOnInit(): void {}
+
+  ngOnDestroy(){
+    console.log("OnDestroy")
+    $(window).off("scroll")
   }
 }
