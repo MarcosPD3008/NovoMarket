@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductosComponent } from './productos.component';
+import { ZoomModalComponent } from './zoom-modal.component';
 
-describe('ProductosComponent', () => {
-  let component: ProductosComponent;
-  let fixture: ComponentFixture<ProductosComponent>;
+describe('ZoomModalComponent', () => {
+  let component: ZoomModalComponent;
+  let fixture: ComponentFixture<ZoomModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductosComponent ]
+      declarations: [ ZoomModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductosComponent);
+    fixture = TestBed.createComponent(ZoomModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

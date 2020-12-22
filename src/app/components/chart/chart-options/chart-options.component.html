@@ -1,4 +1,4 @@
-<div style="width: 100%;">
+<div class="w-100">
   <h1 class="text-danger text-center">Opciones del carrito</h1>
 </div>
 
@@ -12,7 +12,7 @@
 
     <button class="btn btn-outline-success btn-block" (click)="Changer('BS')">
       <strong>
-        Comprar seleccionados {{portrait}}
+        Comprar seleccionados
       </strong>
     </button><br>
 
@@ -38,13 +38,13 @@
 
 <div class="text-center" *ngIf="!Change">
     <h1 class="text-danger">¿Seguro que desea {{Title}}?</h1>
-    <button class="btn btn-success centrado" style="width: 40%;" (click)="DoAnAction()">
+    <button class="btn btn-success btn-options" (click)="DoAnAction()"> 
       <strong>
         Si
       </strong>
     </button>
 
-    <button class="btn btn-secondary centrado" (click)="Changer()" style="width: 40%;">
+    <button class="btn btn-danger  btn-options" (click)="Changer()">  
       <strong>
         No
       </strong>

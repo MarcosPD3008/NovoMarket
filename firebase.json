@@ -1,21 +1,16 @@
 {
-    "hosting": {
-        "public": "dist/prodApp",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewrites": [{
-            "source": "**",
-            "destination": "/index.html"
-        }, {
-            "source": "/Home",
-            "function": "/index.html"
-        }]
-    },
-    "firestore": {
-        "rules": "firestore.rules",
-        "indexes": "firestore.indexes.json"
-    }
+  "hosting": {
+    "public": "dist/prodApp",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }

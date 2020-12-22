@@ -1,6 +1,6 @@
 import { ProductosComponent } from './components/Producto/productos/productos.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
-import { ChartComponent } from './components/chart/chart.component';
+import { ChartComponent } from './components/chart/chart/chart.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

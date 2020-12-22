@@ -10,6 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class ModalComponent implements OnInit {
   producto:Producto
+  Cantidad:number = 1;
 
   constructor(public dialogRef: MatDialogRef<ModalComponent>, private chart:ChartService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -20,7 +21,15 @@ export class ModalComponent implements OnInit {
   }
 
   AddToChart(producto:Producto){
-    this.chart.AddToChart(producto)
+    for(let i = 0; i < this.Cantidad; i++) this.chart.AddToChart(producto)
+    this.dialogRef.close()
   }
 
+  Min(){
+    if(this.Cantidad > 1) this.Cantidad--;
+  }
+
+  Add(){
+    this.Cantidad++;    
+  }
 }

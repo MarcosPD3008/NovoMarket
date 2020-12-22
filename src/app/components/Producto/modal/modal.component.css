@@ -1,0 +1,31 @@
+#btnChart{
+    margin-top:5px;   
+}  
+
+#leftbox{
+    width: 40%; 
+    height: 100%; 
+    float: left; 
+    padding: 10px;
+}
+
+#rightBox{
+    width: 60%; 
+    padding-left: 2%; 
+    height: 100%; 
+    float: left;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+
+.margin-t-15{
+    margin-top:15px !important; 
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.btn{
+    outline:none !important;
+}

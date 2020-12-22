@@ -1,6 +1,4 @@
-import { ModalComponent } from './components/Producto/modal/modal.component';
-import { InfoCardComponent } from './components/Producto/info-card/info-card.component';
-import { ProductosComponent } from './components/Producto/productos/productos.component';
+
 import { FirebaseModule } from './modules/firebase/firebase.module';
 import { MaterialModule } from './modules/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,11 +10,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { ChartComponent } from './components/chart/chart.component';
+import { ChartComponent } from './components/chart/chart/chart.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
-import { ChartOptionsComponent } from './components/chart/chart-options.component';
- 
+import { ChartOptionsComponent } from './components/chart/chart-options/chart-options.component';
+import { ZoomModalComponent } from './components/chart/zoom-modal/zoom-modal.component';
+import { ModalComponent } from './components/Producto/modal/modal.component';
+import { InfoCardComponent } from './components/Producto/info-card/info-card.component';
+import { ProductosComponent } from './components/Producto/productos/productos.component';
+
 @NgModule({
+  entryComponents:[
+    ModalComponent,
+    ZoomModalComponent,
+    ChartOptionsComponent
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -27,6 +34,7 @@ import { ChartOptionsComponent } from './components/chart/chart-options.componen
     NosotrosComponent,
     ModalComponent,
     ChartOptionsComponent,
+    ZoomModalComponent,
   ],
   imports: [
     BrowserModule,

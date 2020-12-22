@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<h1 class="text-center text-danger" style="margin-top:5%">
+<h1 class="text-center text-danger mg-top-5">
   <strong>
     Productos Destacados
   </strong>
@@ -35,9 +35,10 @@
     [idCard]="i" [product]="prod" [Small]="95"></app-info-card>
 </div>
 
-<div style="width:100%; padding-bottom: 15px;" class="text-center">
-  <div class="btn-group centrado" role="group" style="margin-top: 50px;">
-    <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" (click)="PageChange(btn)">
+<div class="text-center" id="btns">
+  <div class="btn-group centrado mg-top-50" role="group">
+    <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" 
+    (click)="PageChange(btn)" [ngClass]="{'active':btn == CurrentPage}">
       {{btn+1}}
     </button>
   </div>

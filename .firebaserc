@@ -1,14 +1,5 @@
 {
-  "targets": {
-    "heroesapp-f92f9": {
-      "hosting": {
-        "prodApp": [
-          "heroesapp-f92f9"
-        ]
-      }
-    }
-  },
   "projects": {
-    "default": "heroesapp-f92f9"
+    "default": "portfolio-3b0ee"
   }
 }

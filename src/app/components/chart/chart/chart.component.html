@@ -1,5 +1,8 @@
-<h1 class="text-center text-danger" style="font-size: 30px;">Carrito de compras</h1>
-
+<h1 class="text-center font-size-40 font-weight-light text-danger">
+  <strong>
+    Carrito de compras
+  </strong> 
+</h1>
 <hr>
 
 <table class="table font-weight-normal" *ngIf="cs.Productos.length > 0">
@@ -17,23 +20,23 @@
     <tbody class="text-center">
       <tr *ngFor="let producto of cs.Productos; index as i">
         <td>
-          <mat-checkbox name="check" color="warn" [(ngModel)]="producto.seleccionado" style="width: 10%;" (click)="this.cs.GetMonto()"></mat-checkbox>
+          <mat-checkbox name="check" color="warn" [(ngModel)]="producto.seleccionado" class="w-12;" (click)="this.cs.GetMonto()"></mat-checkbox>
         </td>
-        <td style="width: 10%;">
+        <td class="w-12">
             <div class="box">
-                <img class="img-fluid img-thumbnail" [src]="producto.producto.Foto[0]" alt="">
+                <img class="img-fluid img-thumbnail puntero" [src]="producto.producto.Foto[0]" (click)="ZoomDialog(producto.producto.Foto[0])">
             </div>
         </td>
-        <td colspan="2" style="width: 35%;">
+        <td colspan="2" class="w-35">
           <p class="text-dark text-center"><strong>{{producto.producto.Nombre}}</strong></p>
           <p class="text-dark text-center">{{producto.producto.Descripcion}}</p>
         </td>
-        <td style="width: 11%;">{{producto.producto.Precio |currency:"DO"}}</td>
+        <td>{{producto.producto.Precio |currency:"DO"}}</td>
         <td>
           <div>
-            <button class="btn btn-sm btn-outline-danger btn-block centrado" style="width: 50%;" (click)="cs.InChart(producto.producto, 'add')">
+            <button class="btn btn-sm btn-outline-danger btn-block centrado w-50" (click)="cs.InChart(producto.producto, 'add')">
                 <strong>
-                  <i class="fa fa-arrow-up" style="font-size: 15px;" aria-hidden="true"></i>
+                  <i class="fa fa-arrow-up font-15" aria-hidden="true"></i>
                 </strong>
             </button>
 
@@ -41,9 +44,9 @@
                 <label>{{producto.cantidad}}</label>
             </div>
 
-            <button class="btn btn-sm btn-outline-danger centrado" style="width: 50%;" (click)="cs.InChart(producto.producto, 'min')">
+            <button class="btn btn-sm btn-outline-danger centrado w-50" (click)="cs.InChart(producto.producto, 'min')">
                 <strong>
-                  <i class="fa fa-arrow-down" style="font-size: 15px;" aria-hidden="true"></i>
+                  <i class="fa fa-arrow-down font-15" aria-hidden="true"></i>
                 </strong>
             </button>
           </div>
@@ -96,4 +99,4 @@
     <h1 class="display-4">Tu carrito de compras esta vacio</h1>
     <p class="lead">Seleccione un producto, para empezar a disfrutar de los mejores precios.</p>
   </div>
-</div>
+</div>  

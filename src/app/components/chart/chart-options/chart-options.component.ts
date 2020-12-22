@@ -6,7 +6,8 @@ declare const $:any
 
 @Component({
   selector: 'app-chart-options',
-  templateUrl: './chart-options.component.html'
+  templateUrl: './chart-options.component.html',
+  styleUrls: ['./chart-options.component.css'] 
 })
 export class ChartOptionsComponent implements AfterContentInit, OnDestroy {
   Title:string = ""

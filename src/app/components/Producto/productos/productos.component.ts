@@ -21,6 +21,7 @@ export class ProductosComponent implements OnInit {
   start:number = 0;
   end:number = 3;
   btnCount:number[] = [];
+  CurrentPage:number = 0;
 
   constructor(public ps:ProductsService, private sb:MatSnackBar) { 
     this.loading = true;
@@ -41,6 +42,7 @@ export class ProductosComponent implements OnInit {
   }
 
   PageChange(index:number){
+    this.CurrentPage = index;
     this.start = 3 * index;
     this.end = this.start + 3;
 

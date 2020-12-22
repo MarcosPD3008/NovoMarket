@@ -1,22 +1,22 @@
-<h2 class="text-center text-danger">
+<h1 class="text-center font-weight-light text-danger">
     <strong>
         {{ Titulo }}.
     </strong>
-</h2><hr>
+</h1><hr>    
 <div [ngClass]="{'div-expandido': Collapse, 'div-contraido':!Collapse}">
     <div *ngIf="!Collapse">
-        <input type="text" style="width:89%; margin-left:2%" id="search" class="form-control" 
+        <input type="text" class="form-control input-89" 
         placeholder="Buscar producto..." [(ngModel)]="word" (change)="SearchByName()" 
         (keyup)="SearchByName()"><br>
     
-        <select id="Select" class="form-control" style="width:89%; margin-left:2%" (change)="SortByCategory($event.target.value)">
+        <select id="Select" class="form-control input-89" (change)="SortByCategory($event.target.value)">
             <option>Seleccione una categoria...</option>
             <option *ngFor="let categoria of Categorias; index as i" class="puntero">
                 {{categoria}}
             </option>
         </select><br>
 
-        <div style="width:100%; padding-bottom: 15px;" class="text-center"> 
+        <div id="btns" class="text-center"> 
             <div class="btn-group centrado" role="group">
               <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" (click)="PageChange(btn)">
                 {{btn+1}}
@@ -26,7 +26,7 @@
     </div>
 
     <div *ngIf="!loading && productos.length > 0">
-        <div class="card-columns" style="padding-left: 2%;">
+        <div class="card-columns" id="cards">
           <app-info-card *ngFor="let prod of productos |slice:start:end" [product]="prod" [Small]="90"></app-info-card>
         </div>
     </div>
@@ -39,21 +39,23 @@
     </div>
 </div>
 
-<div style="width: 20%; height: 400px; float: left;" *ngIf="Collapse">
-    <input type="text" id="search" class="form-control" placeholder="Buscar producto..." [(ngModel)]="word" (change)="SearchByName()" (keyup)="SearchByName()"><br>
+<div id="content" *ngIf="Collapse">
+    <input type="text" id="search" class="form-control" placeholder="Buscar producto..." 
+    [(ngModel)]="word" (change)="SearchByName()" (keyup)="SearchByName()"><br>
 
     <mat-list *ngIf="this.Categorias?.length > 0">
         <span class="text-center text-danger"><strong>Categorias</strong></span>
 
         <mat-list-item *ngFor="let categoria of Categorias; index as i" class="puntero" (click)="SortByCategory(categoria)"
         [id]="'li'+i" (mouseover)="ColorChg('li'+i, $event)" (mouseleave)="ColorChg('li'+i, $event)">
-            <i class="fa fa-arrow-right" style="margin-right: 10px;"></i>
+            <i class="fa fa-arrow-right r-arrow"></i>
             {{categoria}}
         </mat-list-item>
         <mat-list-item>
             <div style="width:100%; padding-bottom: 15px;" class="text-center">
-                <div class="btn-group centrado" role="group" style="margin-top: 50px;">
-                  <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" (click)="PageChange(btn)">
+                <div class="btn-group centrado margin-50" role="group">
+                  <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" 
+                  (click)="PageChange(btn)" [ngClass]="{'active':btn == CurrentPage}"> 
                     {{btn+1}}
                   </button>
                 </div>

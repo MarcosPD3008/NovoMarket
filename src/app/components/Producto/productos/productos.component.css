@@ -9,3 +9,31 @@
     float: left; 
     margin-right: 2%;
 }
+
+.input-89{
+    width:89%; 
+    margin-left:2%;
+}
+
+btns{
+    width:100%; 
+    padding-bottom: 15px;
+}
+
+#cards{
+    padding-left: 2%;
+}
+
+#content{
+    width: 20%; 
+    height: 400px; 
+    float: left;
+}
+
+.r-arrow{
+    margin-right: 10px;
+}
+
+.margin-50{
+    margin-top: 50px;
+}

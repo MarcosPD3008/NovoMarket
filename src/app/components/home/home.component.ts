@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   end:number = 3;
   btnCount:number[] = [];
   Collapse:boolean = false;
+  CurrentPage:number = 0;
 
   constructor(private ps:ProductsService) {
     //this.productUpload()
@@ -75,6 +76,7 @@ export class HomeComponent implements OnInit {
   }
 
   PageChange(index:number){
+    this.CurrentPage = index;
     this.start = 3 * index;
     this.end = this.start + 3;
 

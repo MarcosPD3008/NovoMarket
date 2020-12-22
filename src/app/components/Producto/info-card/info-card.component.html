@@ -1,7 +1,7 @@
 
 <div class="card animated" id="card" [ngStyle]="{'width.%': Small}">
   <div id="foto">
-    <img [src]="product.Foto[0]" class="card-img-top img-thumbnail responsive puntero" [alt]="product.Nombre" (click)="openDialog()">
+    <img [src]="product.Foto[0]" class="img-fluid puntero" [alt]="product.Nombre" (click)="openDialog()">
   </div>
 
   <div class="card-body align-items-end" style="margin-bottom: 0%;">
@@ -9,7 +9,7 @@
 
     <div class="puntero" style="width: fit-content;" data-toggle="tooltip" (click)="AddToChart(product)" data-placement="bottom" title="añadir al carrito">
       <i class="fa fa-cart-plus text-danger" style="font-size: 22px;"></i>
-        <a class="text-danger"> RD${{ product.Precio }}</a>
+        <a class="text-danger">{{ product.Precio | currency:'DO' }}</a>
     </div>
   </div>
 </div>

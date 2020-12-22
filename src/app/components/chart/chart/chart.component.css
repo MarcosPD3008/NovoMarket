@@ -6,3 +6,18 @@
 .mat-raised-button, .mat-mini-fab, .btn, .btn-outline-success{
     outline: none !important;
 }
+
+.w-12{
+    width: 12% !important;
+}
+
+.w-35{
+    width: 35% !important;
+}
+.w-50{
+    width: 50% !important;
+}
+
+.font-15{
+    font-size: 15px !important;
+}
