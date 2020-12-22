@@ -18,7 +18,8 @@
 
         <div id="btns" class="text-center"> 
             <div class="btn-group centrado" role="group">
-              <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount" (click)="PageChange(btn)">
+              <button type="button" class="btn btn-outline-danger" *ngFor="let btn of btnCount"
+              (click)="PageChange(btn)" [ngClass]="{'active':btn == CurrentPage}">
                 {{btn+1}}
               </button>
             </div>
